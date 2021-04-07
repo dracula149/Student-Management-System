@@ -1,0 +1,36 @@
+<table class="table table-striped table-bordered mt-5">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Rollno</th>
+                <th scope="col">Name</th>
+                <th scope="col">Subject Name</th>
+                <th scope="col">Days present</th>
+                <th scope="col">Total no of classes</th>
+                <th scope="col">Attendance Percentage</th>
+                <th scope="col" class="dropdown-hide">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each attendance}}
+            <tr>
+                <td>{{studentRoll}}</td>
+                <td>{{studentName}}</td>
+                <td>{{subjectname}}</td>
+                <td>{{dayspresent}} </td>
+                <td>{{totaldays}} </td>
+                <td>{{attendpercent}} %</td>
+                <td class="dropdown-hide">
+                    <div class="dropdown dropdown-hide" id="customized-dropdown">
+                        <button class="btn btn-secondary" type="button" data-toggle="dropdown">
+                            <i class="fa fa-ellipsis-v"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right animated fadeIn">
+                            {{!-- <a class="dropdown-item select-item" href="" onclick="findUser('/fee-management/edit/{{id}}');">Edit</a> --}}
+                            <a id="delete-item" class="dropdown-item" onclick="deleteItem('/attendance/{{id}}');" href="#">Delete</a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>

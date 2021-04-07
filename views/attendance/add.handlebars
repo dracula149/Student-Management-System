@@ -1,0 +1,79 @@
+<div class="container-fluid" id="container-fluid">
+    <form id="addCourse" action="/attendance/add" method="POST" class="form-edit-course needs-validations" novalidate>
+        {{#each errors}}
+        <div class="alert alert-danger custom-alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="margin-top:0px;">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="media">
+                <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                <div class="media-body ml-4 mt-1">
+                    <strong>{{text}}</strong>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+        <h4>Add  Student Attendance</h4>
+        <hr>
+        {{!-- <div class="form-group">
+            <label for="departmentName">Department</label>
+            <select name="departmentName" class="form-control custom-select" required>
+                {{#select body.Category}}
+                        {{#select body.departmentName}}
+                <option value="">Choose...</option>
+                {{#each dept}}
+                <option value="{{dname}}">{{dname}}</option>
+                {{/each}}
+                {{/select}}
+
+                        
+                        {{/select}}
+                
+
+            </select>
+        </div> --}}
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="studentname">Student Name</label>
+                <input type="text" name="studentname" class="form-control" value="{{body.studentname}}" placeholder="Student Name"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="rollno">rollno</label>
+                <input type="text" name="rollno" class="form-control" value="{{body.rollno}}"
+                    placeholder="Student roll" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-8">
+                <label for="subjectname">Subject Name</label>
+                <input type="text" name="subjectname" class="form-control" value="{{body.subjectname}}" placeholder="Subject Name"
+                    required>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="subjectcode">Subject Code</label>
+                <input type="text" name="subjectcode" class="form-control" value="{{body.subjectcode}}"
+                    placeholder="Subject Code" required>
+            </div>
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="dayspresent">Days present</label>
+                <input type="text" name="dayspresent" class="form-control" value="{{body.dayspresent}}" placeholder="Days present"
+                    required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="totaldays">Total No of Days</label>
+                <input type="text" name="totaldays" class="form-control" value="{{body.totaldays}}" placeholder="Total days"
+                    required>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default btn-lg btn-block">Add Attendance
+            &nbsp;&nbsp;
+            <i class="fa fa-save fa-lg"></i>
+        </button>
+
+    </form>
+</div>
